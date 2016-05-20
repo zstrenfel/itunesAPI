@@ -1,0 +1,65 @@
+//SCSS for search container component and its children
+.search-results {
+  @include span-columns(10);
+  @include shift(1);
+  margin-top: 25px;
+  padding: 10px;
+
+
+  h2 {
+    margin: 0;
+    line-height: 1em;
+    font-weight: 400;
+    color: $secondary-header;
+  }
+
+  h3, h4 {
+    color: lighten($secondary-font, 20%);
+  }
+
+  .search-item {
+    @include span-columns(10);
+    @include shift(1);
+
+    text-align: left;
+    // background-color: lighten($background-grey, 5%);
+    height: auto;
+    // margin: 10px 0;
+    border-bottom: 1px solid $background-grey;
+    border-radius: 5px;
+    padding: 20px 7px;
+    transition: display 300ms ease-in;
+
+    .image {
+      @include span-columns(2);
+      height: 100%;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    .description {
+      @include span-columns(10);
+    }
+
+    a {
+      color: $blue;
+      font-size: .8em;
+      font-style: italic;
+      font-weight: thin;
+      text-decoration: none;
+      transition: color 200ms ease-in;
+
+      &:hover {
+        color: darken($blue, 10%);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 60px;
+      border-bottom: none;
+    }
+  }
+}

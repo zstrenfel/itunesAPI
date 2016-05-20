@@ -1,0 +1,19 @@
+//animations go here
+.appear {
+  animation-name: appear;
+  animation-duration: 500ms;
+}
+
+@keyframes appear {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+}

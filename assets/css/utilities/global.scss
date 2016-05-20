@@ -1,0 +1,131 @@
+//global and homeless SCSS specifications
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: $font-family;
+  color: $secondary-font;
+  vertical-align: baseline;
+}
+
+body {
+  // @include background-image(url("/imgs/geometry.png"), transparent 50%);
+
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.default {
+    height: auto;
+    background-color: lighten($background-grey, 1%);
+    margin-top: 20px;
+    border: 1px solid $background-grey;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+
+
+h1, h2, h3, h4, h5{
+  font-family: $font-family;
+  color: $primary-font;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.container {
+  @include outer-container(1000px);
+  background:rgba(255,255,255,0.8);
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  overflow: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: lighten($background-grey, 2%);
+  border-bottom: 1.5px solid darken($background-grey, 5%);
+  height: 100px;
+
+  img {
+    height: 100px;
+    width: auto;
+  }
+
+  h1 {
+    color: #747979;
+    font-size: 1.5em;
+  }
+
+  h3 {
+    color: #747979;
+  }
+}
+
+.home {
+  padding: 20px;
+  text-align: center;
+}
+
+
+input, select {
+  @include span-columns(12);
+  border: 2px solid darken($background-grey, 5%);
+  height: 35px;
+  font-size: 1.2em;
+  color: darken($background-grey, 55%);
+  line-height: 1.2;
+  padding: 3px 7px;
+  font: inherit;
+
+  &:focus {
+    box-shadow: 0 0 5px #2E949F;
+    border: 1px solid rgba(81, 203, 238, 1);
+  }
+}
+
+footer.final {
+  @include span-columns(12);
+  height: 50px;
+  text-align: center;
+  font-size: .8em;
+  color: darken($background-grey, 20%);
+  border-top: 1.5px solid darken($background-grey, 5%);
+  padding-top: 15px;
+  position: absolute;
+  bottom: 0;
+
+  a {
+    color: #59ABE3;
+    text-decoration: none;
+  }
+}
+
+
+button {
+  @include span-columns(12);
+  margin-top: 10px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: $blue;
+  color: #E8E8E8;
+  font-size: 1.1em;
+  border: darken($blue, 5%);
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+
+}
