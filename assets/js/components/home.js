@@ -16,7 +16,8 @@ class Home extends React.Component {
       query: "",
       url: "https://itunes.apple.com/search?media=music&term=",
       searchResults: [],
-      type: 'all'
+      type: 'all',
+      errMessage: 'You haven\'t searched for anything yet.'
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,21 +41,23 @@ class Home extends React.Component {
         .then(function(response) {
           return response.json()
         }).then(function(json) {
-          console.log('parsed json', json);
+          if (json.resultCount === 0) {
+            this.setState({errMessage: 'There were no results for that search :('})
+          }
           //set state with the results
           this.setState({searchResults:json.results})
         }.bind(this)).catch(function(ex) {
           console.log('parsing failed', ex)
         })
     } else {
-      console.log('no search query entered');
+      this.setState({errMessage: 'You didn\'t enter a search query.'});
     }
   }
 
   render() {
     // Checks to see if content is ready to be loaded (i.e. call to the API has already been made.)
     const content = this.state.searchResults.length === 0
-      ? <ErrorMessage />
+      ? <ErrorMessage message={this.state.errMessage}/>
       : <SearchContainer searchResults={ this.state.searchResults } />;
 
     return (
